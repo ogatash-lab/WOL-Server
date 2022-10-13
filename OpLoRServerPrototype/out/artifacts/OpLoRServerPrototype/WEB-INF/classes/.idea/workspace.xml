@@ -1,0 +1,946 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="OpLoRServerPrototype" />
+    </artifacts-to-build>
+  </component>
+  <component name="BookmarkManager">
+    <bookmark url="das://b87d3bf3-a23b-4d2a-a31f-5953d24c194f/schema/test/table/htmlinputelement" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d27704f5-0de6-413c-bbc1-dfb71d0c5126" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="test: schema" type="c314c289:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="collations" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="OpLoRServerPrototype" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="LogWriter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/oplor/server/LogWriter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret lean-forward="true" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="element" pinned="false" current-in-tab="false">
+        <entry file="das://b87d3bf3-a23b-4d2a-a31f-5953d24c194f/schema/test/table/element">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LogCreate.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/oplor/server/LogCreate.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="329">
+              <caret line="573" column="9" lean-forward="true" selection-start-line="573" selection-start-column="9" selection-end-line="573" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>1547393290</find>
+      <find>154739321252</find>
+      <find>sendMouse</find>
+      <find>diffTime</find>
+      <find>Connection</find>
+      <find>sqlite.jdbc</find>
+      <find>isConnection</find>
+      <find>MouseEvent</find>
+      <find>INSERT</find>
+      <find>sqliteInsert(c</find>
+      <find>SendMouse</find>
+      <find>logID</find>
+      <find>Key</find>
+      <find>System.out.println(</find>
+      <find>System.out.println(&quot;EventType</find>
+      <find>EventType</find>
+      <find>EventType]</find>
+      <find>log</find>
+      <find>System.out.println(&quot;logI</find>
+      <find>OneConnectionSize</find>
+      <find>&quot;locate&quot;</find>
+      <find>Keyboard</find>
+      <find>MouseFrequency</find>
+      <find>logs.add</find>
+      <find>sendDatabase</find>
+      <find>KeyboardEvent</find>
+      <find>locate</find>
+      <find>System.out.println</find>
+      <find>click</find>
+      <find>Node</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLTextAreaElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLTimeElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLTitleElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLVideoElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLTrackElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/InputEvent.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/MouseEvent.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/TouchEvent.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/UIEvent.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/WheelEvent.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/Document.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/DocumentType.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/Element.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLAnchorElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLAreaElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLBaseElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLButtonElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLCanvasElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLDataElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLDialogElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLEmbedElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLFieldSetElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLFormElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLFrameElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLInputElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLLegendElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLLabelElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLLIElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLLinkElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLMapElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLMediaElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLMetaElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLMeterElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLModElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLObjectElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLOListElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLOptGroupElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLOptionElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLOutputElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLParamElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLProgressElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLQuoteElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLSelectElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HTMLScriptElement.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/Log.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/KeyboardEvent.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/LogWriter.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/HelloServlet.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/FocusEvent.java" />
+        <option value="$PROJECT_DIR$/src/oplor/server/LogCreate.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="false" />
+    <option name="FILTER_DEBUG" value="false" />
+    <option name="CUSTOM_FILTER" value="" />
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="width" value="803" />
+    <option name="height" value="867" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="OpLoRServerPrototype" type="cbb8eebc:String" user="OpLoRServerPrototype" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="OpLoRServerPrototype" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OpLoRServerPrototype" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OpLoRServerPrototype" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OpLoRServerPrototype" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OpLoRServerPrototype" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OpLoRServerPrototype" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OpLoRServerPrototype" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OpLoRServerPrototype" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OpLoRServerPrototype" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OpLoRServerPrototype" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="Node" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OpLoRServerPrototype" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="OpLoRServerPrototype" type="58d84e3e:PackageViewProjectNode" />
+              <item name="OpLoRServerPrototype" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/15T5001/Desktop/Friday/OpLoRServerPrototype/src/oplor/server/LogWriter.java" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="last.edited.regexp" value="Sample Text" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\15T5001\Desktop\Friday\OpLoRServerPrototype\web" />
+      <recent name="C:\Users\SO\Dropbox\ogata_cs100\IdeaProjects\OpLoRServerPrototype\web" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\15T5001\Desktop\Friday\OpLoRServerPrototype\web\lib" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.TomCat9.0">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="GlassFish 5.0.0" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="GlassFish 5.0.0" ALTERNATIVE_JRE_ENABLED="false" show_console_on_std_err="true" show_console_on_std_out="true">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/OpLoRServerPrototype" />
+      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
+      <deployment>
+        <artifact name="OpLoRServerPrototype">
+          <settings />
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="DOMAIN" value="domain1" />
+        <option name="PRESERVE" value="false" />
+        <option name="COMPATIBILITY" value="false" />
+        <option name="VIRTUAL_SERVER" />
+        <option name="USERNAME" value="admin" />
+        <option name="PASSWORD" value="" />
+      </server-settings>
+      <predefined_log_file id="GlassFish" enabled="true" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="9009" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="OpLoRServerPrototype" />
+        </option>
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration name="TomCat9.0" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.8" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="OpLoRServerPrototype">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_OpLoRServerPrototype_2" />
+        <option name="JNDI_PORT" value="1010" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="52955" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="OpLoRServerPrototype" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="GlassFish Server.GlassFish 5.0.0" />
+      <item itemvalue="Tomcat Server.TomCat9.0" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\15T5001\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d27704f5-0de6-413c-bbc1-dfb71d0c5126" name="Default" comment="" />
+      <created>1513967182992</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1513967182992</updated>
+      <workItem from="1513967186520" duration="7948000" />
+      <workItem from="1514001315537" duration="3711000" />
+      <workItem from="1514012690046" duration="220000" />
+      <workItem from="1514030341092" duration="2611000" />
+      <workItem from="1514205066913" duration="769000" />
+      <workItem from="1514212742358" duration="19000" />
+      <workItem from="1514721866800" duration="1892000" />
+      <workItem from="1514908064282" duration="8080000" />
+      <workItem from="1516032793857" duration="138000" />
+      <workItem from="1529647412846" duration="5897000" />
+      <workItem from="1530535063479" duration="11406000" />
+      <workItem from="1530756749058" duration="4404000" />
+      <workItem from="1531136372967" duration="4372000" />
+      <workItem from="1531171309418" duration="2664000" />
+      <workItem from="1531216761033" duration="2316000" />
+      <workItem from="1531222276429" duration="10088000" />
+      <workItem from="1531237898853" duration="898000" />
+      <workItem from="1531292667934" duration="611000" />
+      <workItem from="1531311563790" duration="531000" />
+      <workItem from="1531346986734" duration="14428000" />
+      <workItem from="1532147663248" duration="1205000" />
+      <workItem from="1532150461113" duration="5026000" />
+      <workItem from="1532265386847" duration="610000" />
+      <workItem from="1532417489649" duration="1051000" />
+      <workItem from="1532494032891" duration="68000" />
+      <workItem from="1532782059805" duration="20000" />
+      <workItem from="1533030797413" duration="4779000" />
+      <workItem from="1533087678034" duration="3645000" />
+      <workItem from="1533450298634" duration="916000" />
+      <workItem from="1533553245345" duration="2334000" />
+      <workItem from="1533591039550" duration="3678000" />
+      <workItem from="1533601529651" duration="13137000" />
+      <workItem from="1533637935504" duration="1683000" />
+      <workItem from="1533670869465" duration="650000" />
+      <workItem from="1533691351771" duration="5589000" />
+      <workItem from="1534675635819" duration="8992000" />
+      <workItem from="1534734616050" duration="12365000" />
+      <workItem from="1534837109883" duration="11665000" />
+      <workItem from="1534853548559" duration="449000" />
+      <workItem from="1534855630850" duration="1419000" />
+      <workItem from="1534936087923" duration="9184000" />
+      <workItem from="1534995158509" duration="6136000" />
+      <workItem from="1535033610921" duration="6550000" />
+      <workItem from="1535109428980" duration="1100000" />
+      <workItem from="1535142740820" duration="6564000" />
+      <workItem from="1535564809166" duration="254000" />
+      <workItem from="1535718357716" duration="1587000" />
+      <workItem from="1535792463094" duration="437000" />
+      <workItem from="1535814814734" duration="10563000" />
+      <workItem from="1535969503274" duration="1474000" />
+      <workItem from="1535987134506" duration="4907000" />
+      <workItem from="1536032785316" duration="5833000" />
+      <workItem from="1536298588175" duration="597000" />
+      <workItem from="1536483450040" duration="13757000" />
+      <workItem from="1536552796818" duration="7092000" />
+      <workItem from="1536622139157" duration="627000" />
+      <workItem from="1536646817157" duration="11789000" />
+      <workItem from="1536714297267" duration="5503000" />
+      <workItem from="1536720000193" duration="1128000" />
+      <workItem from="1536721149618" duration="2648000" />
+      <workItem from="1536729237991" duration="1873000" />
+      <workItem from="1537226652956" duration="27078000" />
+      <workItem from="1537306163679" duration="16108000" />
+      <workItem from="1537362151235" duration="2309000" />
+      <workItem from="1537405453779" duration="6997000" />
+      <workItem from="1537800814356" duration="7457000" />
+      <workItem from="1537851816769" duration="3946000" />
+      <workItem from="1537931912032" duration="3764000" />
+      <workItem from="1537952413217" duration="2609000" />
+      <workItem from="1538016480736" duration="6199000" />
+      <workItem from="1538841043435" duration="7885000" />
+      <workItem from="1538942154887" duration="32288000" />
+      <workItem from="1539507342554" duration="6862000" />
+      <workItem from="1539531170468" duration="17547000" />
+      <workItem from="1539559172156" duration="24605000" />
+      <workItem from="1539668168310" duration="590000" />
+      <workItem from="1539687002268" duration="572000" />
+      <workItem from="1539696821782" duration="43000" />
+      <workItem from="1539752894396" duration="4746000" />
+      <workItem from="1540108927935" duration="846000" />
+      <workItem from="1540157214716" duration="5750000" />
+      <workItem from="1540209225041" duration="1885000" />
+      <workItem from="1540415857064" duration="4730000" />
+      <workItem from="1541243260592" duration="66931000" />
+      <workItem from="1542003767980" duration="24417000" />
+      <workItem from="1542714308146" duration="7101000" />
+      <workItem from="1543047941892" duration="7733000" />
+      <workItem from="1543391052444" duration="14185000" />
+      <workItem from="1543905514591" duration="16682000" />
+      <workItem from="1544500191253" duration="6982000" />
+      <workItem from="1544607381429" duration="39141000" />
+      <workItem from="1545507413974" duration="1766000" />
+      <workItem from="1545973741818" duration="2005000" />
+      <workItem from="1546223029552" duration="17599000" />
+      <workItem from="1546553782360" duration="8576000" />
+      <workItem from="1546679017988" duration="2815000" />
+      <workItem from="1546802355618" duration="3772000" />
+      <workItem from="1546829680388" duration="9503000" />
+      <workItem from="1546851649344" duration="4046000" />
+      <workItem from="1546899976228" duration="7891000" />
+      <workItem from="1546911016335" duration="17540000" />
+      <workItem from="1547029663568" duration="2953000" />
+      <workItem from="1547082189119" duration="1615000" />
+      <workItem from="1547084666046" duration="9278000" />
+      <workItem from="1547213719733" duration="40336000" />
+      <workItem from="1547518286779" duration="46330000" />
+      <workItem from="1547784569248" duration="948000" />
+      <workItem from="1549175595379" duration="901000" />
+      <workItem from="1549180200755" duration="589000" />
+      <workItem from="1549208173411" duration="161000" />
+      <workItem from="1549548846065" duration="1057000" />
+      <workItem from="1549560173891" duration="3824000" />
+      <workItem from="1550297611238" duration="2232000" />
+      <workItem from="1551763960358" duration="2328000" />
+      <workItem from="1552159035984" duration="2991000" />
+      <workItem from="1552164287531" duration="2955000" />
+      <workItem from="1552168747629" duration="2305000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="826314000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.5" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info id="Image Layers" order="5" />
+      <window_info anchor="bottom" id="Java Enterprise" order="15" sideWeight="0.49785176" weight="0.32359308" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.31590655" side_tool="true" weight="0.49784172" />
+      <window_info anchor="bottom" id="Application Servers" order="7" sideWeight="0.4935553" weight="0.31709957" />
+      <window_info anchor="right" id="Maven Projects" order="6" visible="true" weight="0.0044987146" />
+      <window_info anchor="bottom" id="Database Changes" order="12" weight="0.43606558" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6840934" weight="0.48655915" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.48442534" weight="0.46753246" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7867965" visible="true" weight="0.30526993" />
+      <window_info id="Web" order="6" sideWeight="0.44333997" side_tool="true" weight="0.21272494" />
+      <window_info anchor="right" id="Database" order="5" weight="0.04037685" />
+      <window_info id="Structure" order="1" sideWeight="0.44333997" side_tool="true" weight="0.21272494" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.91656977" weight="0.7823129" />
+      <window_info id="Favorites" order="7" sideWeight="0.21320346" side_tool="true" weight="0.12473348" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4990619" weight="0.3965054" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="Database Console" order="13" weight="0.3225108" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="SQL Generator" order="14" visible="true" weight="0.33224043" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info anchor="bottom" id="Application Servers" order="7" sideWeight="0.4935553" weight="0.31709957" />
+      <window_info id="Designer" order="3" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Database Console" order="13" weight="0.3225108" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6840934" visible="true" weight="0.0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="7" sideWeight="0.21320346" side_tool="true" visible="true" weight="0.12473348" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.48442534" weight="0.46753246" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.31590655" side_tool="true" weight="0.49784172" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4990619" weight="0.3979751" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.5" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7867965" visible="true" weight="0.12473348" />
+      <window_info id="Image Layers" order="5" />
+      <window_info anchor="bottom" id="Java Enterprise" order="15" sideWeight="0.49785176" weight="0.32359308" />
+      <window_info anchor="bottom" id="Database Changes" order="12" weight="0.43606558" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="right" id="Maven Projects" order="6" weight="0.013326226" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Database" order="5" visible="true" weight="0.0" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info id="Web" order="6" sideWeight="0.44333997" side_tool="true" weight="0.21272494" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info id="Structure" order="1" sideWeight="0.44333997" side_tool="true" weight="0.21272494" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="SQL Generator" order="14" visible="true" weight="0.33224043" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.91656977" weight="0.7823129" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="18" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/Document.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/DocumentType.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/Element.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLAnchorElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLAreaElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLBaseElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLButtonElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLCanvasElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLDataElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLDialogElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLEmbedElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLFieldSetElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLFormElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLFrameElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLInputElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLLegendElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLLabelElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLLIElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLLinkElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLMapElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLMediaElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLMetaElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLMeterElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLModElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLOListElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLOptGroupElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLOptionElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLOutputElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLParamElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLProgressElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLQuoteElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLSelectElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLScriptElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLObjectElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/UIEvent.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/Log.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="31" column="21" lean-forward="true" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/Event.java" />
+    <entry file="das://b87d3bf3-a23b-4d2a-a31f-5953d24c194f/schema/test/table/keyboardevent">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b87d3bf3-a23b-4d2a-a31f-5953d24c194f/schema/test/table/characterdata">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../sqlite/NaganoKouka.db.sql">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state relative-caret-position="-35375">
+          <caret line="5" column="17" lean-forward="true" selection-end-line="24733" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b87d3bf3-a23b-4d2a-a31f-5953d24c194f/schema/test/table/htmlelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b87d3bf3-a23b-4d2a-a31f-5953d24c194f/schema/test/table/event">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b87d3bf3-a23b-4d2a-a31f-5953d24c194f/schema/test/table/log">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HelloServlet.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/HTMLTableCellElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/KeyboardEvent.java" />
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/FocusEvent.java" />
+    <entry file="das://b87d3bf3-a23b-4d2a-a31f-5953d24c194f/schema/test/table/element">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/LogWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oplor/server/LogCreate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="573" column="9" lean-forward="true" selection-start-line="573" selection-start-column="9" selection-end-line="573" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>OpLoRServerPrototype</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Web (OpLoRServerPrototype)|Web</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>astah-api</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>OpLoRServerPrototype</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>sqlite-jdbc-3.23.1</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
