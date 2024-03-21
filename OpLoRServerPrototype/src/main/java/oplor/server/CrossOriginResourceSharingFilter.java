@@ -14,7 +14,7 @@ public class CrossOriginResourceSharingFilter implements Filter {
         if (response instanceof HttpServletResponse) {
             HttpServletResponse httpResponse = (HttpServletResponse) response;
 
-            httpResponse.addHeader("Access-Control-Allow-Origin", "http://localhost:63342");
+            //httpResponse.addHeader("Access-Control-Allow-Origin", "http://localhost:63342");
 
             //httpResponse.addHeader("Access-Control-Allow-Origin", "https://www.rakuten.co.jp");
             //httpResponse.addHeader("Access-Control-Allow-Origin", "https://www.dnp.co.jp");
@@ -22,6 +22,9 @@ public class CrossOriginResourceSharingFilter implements Filter {
             //httpResponse.addHeader("Access-Control-Allow-Origin", "http://localhost:8080/standard_event.json");
             //httpResponse.addHeader("Access-Control-Allow-Origin", "https://campus-3.shinshu-u.ac.jp");
             //httpResponse.addHeader("Access-Control-Allow-Origin", "https://www.amazon.co.jp");
+            //httpResponse.addHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5000");
+            //httpResponse.addHeader("Access-Control-Allow-Origin", "http://127.0.0.1:3000");
+            //httpResponse.addHeader("Access-Control-Allow-Origin", "http://192.168.56.1:5000/");
 
             httpResponse.addHeader("Access-Control-Allow-Credentials", "true");
             httpResponse.addHeader("Access-Control-Allow-Methods", "GET, HEAD, OPTIONS, POST, PUT");
