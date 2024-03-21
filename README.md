@@ -11,7 +11,7 @@ githubリポジトリをクローン
 git clone https://github.com/ogatash-lab/WOL-Server.git
 ```
 ### ツールを構築
-`WOL-Server`ディレクトリに移動し，以下のコマンドでDockerファイルでDockerイメージを構築
+`/WOL-Server`ディレクトリに移動し，以下のコマンドでDockerファイルでDockerイメージを構築
 ```
 docker build ./ -t 「イメージの名前(イメージ名)」
 
