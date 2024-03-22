@@ -26,3 +26,12 @@ docker run --name 「任意の名前(コンテナ名)」 -p 8080:8080 --mount ty
 docker run --name woltool -p 8080:8080 --mount type=bind,src=C:\Users\name\Desktop\workspace\testserv,dst=/usr/local/tomcat/db -d woltool:latest
 ```
 (※1)保存先のディレクトリの中身は空にしておくこと
+
+### ツールの停止
+ターミナルでDockerコマンドを実行することでツールを停止する
+```
+docker stop 「コンテナ名」
+
+例
+docker stop woltool
+```
