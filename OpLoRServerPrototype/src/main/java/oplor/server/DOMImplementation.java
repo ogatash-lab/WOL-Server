@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 
+//DOMの実装を表すクラス
 public class DOMImplementation {
 
 }

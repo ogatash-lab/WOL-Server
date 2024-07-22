@@ -1,0 +1,16 @@
+Dockerfileが置いてあるディレクトリに移動し，
+次のコマンドをWindows PowerShell上で実行
+
+>docker build ./ -t 「任意の名前(イメージ名)」　#Dockerコンテナを作成するための設計図(イメージ)を作成
+
+#Dockerコンテナを作成，実行する
+>docker run --name 「任意の名前(コンテナ名)」 -p 8080:8080 --mount type=bind,src=「ホストの任意のディレクトリ(※1)」,dst=/usr/local/tomcat/db -d 「イメージ名」:latest
+
+
+※1コマンドを実行する前に指定したディレクトリの中身は空にしておくこと．実行後，ここで指定したディレクトリに収集したログのデータベースが保存される
+
+readme:
+CORES回避
+主要なログの説明
+データベース接続の話
+Seleniumでの拡張機能設定の話

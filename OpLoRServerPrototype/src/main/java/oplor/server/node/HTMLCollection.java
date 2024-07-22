@@ -11,6 +11,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 
+
+//HTML内の要素を取得し，操作するための集合に関するクラス
 public class HTMLCollection {
     //public int length;
 }

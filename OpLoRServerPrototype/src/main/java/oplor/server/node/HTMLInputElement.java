@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+//<input>要素に関するクラス
 public class HTMLInputElement extends HTMLElement {
     //public HTMLFormElement formSelector;
     public String formAction;
@@ -54,8 +55,11 @@ public class HTMLInputElement extends HTMLElement {
     public double valueAsNumber;
     public String autocapitalize;
 
+    //HTMLInputElementの更新
     public void update() {
+        //親クラスのアップデート
         super.update();
+        //追加情報をgetterマップに追加
         getter.put("formAction", formAction);
         getter.put("formEncType", formEncType);
         getter.put("formMethod", formMethod);
@@ -96,9 +100,12 @@ public class HTMLInputElement extends HTMLElement {
         getter.put("autocapitalize", autocapitalize);
     }
 
+    //データベースにHTMLInputElementを挿入
     public int Insert(int logID, Connection conn, PreparedStatement ps, ResultSet rs) throws SQLException {
+        //親イベントのIDを取得
         int parentID = super.Insert(logID, conn, ps, rs);
-        //INSERT
+
+        //htmlinputelementテーブルにデータを挿入するSQL文
         String sql = "INSERT INTO htmlinputelement(ref, formAction, formEnctype, formMethod, formNoValidate, formTarget, name, type, disabled, autofocus," +
                 " required, value, validationMessage, willValidate, checked, defaultChecked, indeterminate, alt, height, src," +
                 " width, accept, autocomplete, maxLength, size, pattern, placeholder, readyOnly, min, max, " +
@@ -107,7 +114,11 @@ public class HTMLInputElement extends HTMLElement {
                 " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?," +
                 " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, " +
                 "?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        //準備されたステートメントを作成
         ps = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+
+        //パラメータを設定
         ps.setInt(1, parentID);
         ps.setString(2, formAction);
         ps.setString(3, formEncType);
@@ -147,20 +158,27 @@ public class HTMLInputElement extends HTMLElement {
         ps.setString(37, step);
         ps.setDouble(38, valueAsNumber);
         ps.setString(39, autocapitalize);
-        //ISNERTを実行する
+
+        //INSERT文を実行
         ps.executeUpdate();
-        //次の子クラスへと紐づけるためのID取得
+
+        //挿入されたレコードのキーを取得
         int childID = -1;
         rs = ps.getGeneratedKeys();
         while (rs.next()) {
-            childID = rs.getInt(1);
+            childID = rs.getInt(1); //挿入したレコードIDを取得
         }
+        //取得したレコードIDを返す
         return childID;
     }
 
+    //SQLiteデータベースにHTMLInputElement情報を挿入
     public int sqliteInsert(int logID, Connection connection) throws SQLException {
+        //親ノードのIDを取得
         int parentID = super.sqliteInsert(logID, connection);
         int childID = -1;
+
+        //HTMLInputElementテーブルにデータを挿入するSQL文
         String sql = "insert into HTMLInputElement(ref, formAction, formEnctype, formMethod, formNoValidate, formTarget, name, type, disabled, autofocus," +
                 " required, value, validationMessage, willValidate, checked, defaultChecked, indeterminate, alt, height, src," +
                 " width, accept, autocomplete, maxLength, size, pattern, placeholder, readyOnly, min, max, " +
@@ -170,6 +188,7 @@ public class HTMLInputElement extends HTMLElement {
                 " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, " +
                 "?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
+            //パラメータの設定
             ps.setInt(1, parentID);
             ps.setString(2, formAction);
             ps.setString(3, formEncType);
@@ -209,15 +228,19 @@ public class HTMLInputElement extends HTMLElement {
             ps.setString(37, step);
             ps.setDouble(38, valueAsNumber);
             ps.setString(39, autocapitalize);
+            //SQL文の実行
             ps.executeUpdate();
+            //挿入したレコードのキーを取得
             ResultSet rs = ps.getGeneratedKeys();
             while (rs.next()) {
-                childID = rs.getInt(1);
+                childID = rs.getInt(1); //挿入したレコードIDを取得
             }
         }
+        //挿入したレコードIDを取得
         return childID;
     }
 
+    //HTMLInputElementと出力
     public String accept(Processor pro) {
         pro.process(this);
         return null;

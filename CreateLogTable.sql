@@ -455,9 +455,37 @@ CREATE TABLE IF NOT EXISTS "HTMLTableRowElement" (
 	"rowIndex"	TEXT,
 	"sectionRowIndex"	TEXT
 );
+CREATE TABLE IF NOT EXISTS "HTMLTextAreaElement" (
+	"htmltextareaelementID"	INTEGER PRIMARY KEY AUTOINCREMENT,
+	"ref"	TEXT,
+	"type"	TEXT,
+	"value"	TEXT,
+	"textLength"	TEXT,
+	"defaultValue"	TEXT,
+	"placeholder"	TEXT,
+	"rows"	TEXT,
+	"cols"	TEXT,
+	"autofocus"	TEXT,
+	"name"	TEXT,
+	"disabled"	TEXT,
+	"maxLength"	TEXT,
+	"accessKey"	TEXT,
+	"readOnly"	TEXT,
+	"required"	TEXT,
+	"tabIndex"	TEXT,
+	"selectionStart"	TEXT,
+	"selectionEnd"	TEXT,
+	"selectionDirection"	TEXT,
+	"willValidate"	TEXT,
+	"validationMessage"	TEXT,
+	"autocomplete"	TEXT,
+	"autocapitalize"	TEXT,
+	"inputMode"	TEXT,
+	"wrap"	TEXT
+);
 CREATE TABLE IF NOT EXISTS "HTMLTitleElement" (
 	"htmltitleelementID"	INTEGER PRIMARY KEY AUTOINCREMENT,
-	"ref"	text
+	"ref"	TEXT
 );
 CREATE TABLE IF NOT EXISTS "HTMLTrackElement" (
 	"htmltrackelementID"	INTEGER PRIMARY KEY AUTOINCREMENT,

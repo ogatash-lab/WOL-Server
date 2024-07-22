@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+//HTML要素を表すクラス
 public class Element extends Node {
     public String selector;//型はElementかもしれない。ログを見る限りStringで格納できそうであるけれど
     public HTMLSlotElement assignedSlot;
@@ -35,8 +36,11 @@ public class Element extends Node {
     //public int undoManager;
     public boolean undoScope;
 
+    //Elementの更新
     public void update() {
+        //親クラスのアップデート
         super.update();
+        //追加情報をgetterマップに追加
         getter.put("selector", selector);
         //HTMLSlotElement assignedSlot;
         //DOMTokenList classList;
@@ -110,13 +114,18 @@ public class Element extends Node {
         return childID;
     }*/
 
+    //SQLiteデータベースにElement情報を挿入
     public int sqliteInsert(int logID, Connection connection) throws SQLException {
+        //親ノードのIDを取得
         int parentID = super.sqliteInsert(logID, connection);
         int childID = -1;
         //System.out.println("1");
+
+        //Elementテーブルにデータを挿入するSQL文
         String sql = "insert into Element(ref, className, clientHeight, clientLeft, clientTop, computedName, computedRole, id, innerHTML, localName, namespaceURI, outerHTML, prefix, scrollHeight, scrollWidth, slot, tagName, undoScope)" +
                 "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
+            //パラメータの設定
             ps.setInt(1, parentID);
             ps.setString(2, className);
             ps.setString(3, clientHeight);
@@ -135,15 +144,21 @@ public class Element extends Node {
             ps.setString(16, slot);
             ps.setString(17, tagName);
             ps.setBoolean(18, undoScope);
+
+            //SQL文の実行
             ps.executeUpdate();
+
+            //挿入したレコードのキーを取得
             ResultSet rs = ps.getGeneratedKeys();
             while (rs.next()) {
-                childID = rs.getInt(1);
+                childID = rs.getInt(1); //挿入したレコードのIDを取得
             }
         }
+        //挿入されたレコードIDを返す
         return childID;
     }
 
+    //???
     public String accept(Processor pro) {
         return null;
     }

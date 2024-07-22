@@ -21,6 +21,7 @@ import static java.lang.Math.abs;
 //HTTP port 8080
 //JMX port 2020
 
+//MySQLデータベースに保存するクラス
 @WebServlet(name = "LogCreate", urlPatterns = {"/HW"})
 public class LogCreate extends HttpServlet {
     public Event event = new Event();
@@ -36,16 +37,20 @@ public class LogCreate extends HttpServlet {
     public PreparedStatement ps = null;
     public ResultSet rs = null;
 
+    //HTTP POSTリクエストを処理
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //response.setContentType("application/json;charset=UTF-8");
 
+        //レスポンスのコンテンツタイプをJSONに設定
         response.setContentType("application/json;charset=ASCII");
 
+        //リクエストボディを読み込む
         BufferedReader reader = request.getReader();
         String body, line;
         HttpSession session = request.getSession();
         String userID = (String) session.getAttribute("userID");
 
+        //前回のマウスアクションの時間を保持
         Calendar calendar = Calendar.getInstance();
         Calendar lastcal = Calendar.getInstance();
         lastcal = (Calendar) session.getAttribute("lastMouseAction");
@@ -53,13 +58,14 @@ public class LogCreate extends HttpServlet {
             session.setAttribute("lastMouseAction", calendar);
         }
 
-        //userID==nullなら最初のアクセスであるのでuserIDをSessionごとにCookieに格納する。
+        //userIDがnullの場合，新しいUUIDを生成してセッションに設定
         if (userID == null) {
             UUID uuid = UUID.randomUUID();
             userID = uuid.toString();
             session.setAttribute("userID", userID);
         }
 
+        //リクエストボディを文字列に読み込む(区切り文字：@@)
         body = "";
         line = null;
         while ((line = reader.readLine()) != null) {
@@ -71,12 +77,14 @@ public class LogCreate extends HttpServlet {
         String EventBody, NodeBody;
 
         if (strs.length >= 3) {
+            //リクエストからイベントタイプ，ノードタイプ，ログボディを解析
             EventType = strs[0];
             NodeType = strs[1];
             LogBody = strs[2];
             System.out.println("EventType:" + EventType);
             System.out.println("LogBody:" + LogBody);
 
+            //ログボディをイベントボディとノードボディに分割
             String[] logbody = LogBody.split("},", 2);
             EventBody = logbody[0];
             EventBody += "}";
@@ -85,15 +93,18 @@ public class LogCreate extends HttpServlet {
             NodeBody = logbody[1];
             NodeBody = NodeBody.replace("}]", "}");
 
-            //Logの出力
+            //NodeBody文字列をASCIIに変換
             byte[] bytes = NodeBody.getBytes("ASCII");
             String newStr3 = new String(bytes, "ASCII");
 
             String path = "jdbc:mysql://localhost:3306/test?autoReconnect=true&useSSL=false";  //接続パス
             String id = "root";    //ログインID
             String pw = "Usagi3.0807";  //ログインパスワード
-            //event
+
+            //JSONデシリアライズ用のGsonオブジェクトを初期化(JSON->Object)
             Gson egson = new Gson();
+
+            //EventTypeに基づいてイベントをデシリアライズ
             if (EventType.equals("event")) {
                 event = egson.fromJson(EventBody, Event.class);//JSON形式からオブジェクトへ
                 event.update();
@@ -146,7 +157,8 @@ public class LogCreate extends HttpServlet {
                 dragevent.update();
                 event = dragevent;
             }
-            //node
+
+            //NodeTypeに基づいてノードをデシリアライズ
             Gson ngson = new Gson();
             if (NodeType.equals("node")) {
                 //System.out.println("node");
@@ -373,10 +385,13 @@ public class LogCreate extends HttpServlet {
         //request.getRequestDispatcher("/standard_event.json").forward(request, response);
     }
 
+    //HTTP GETリクエストを処理
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
     }
 
+
+    //Cookieの設定
     public static void setCookie(HttpServletRequest request, HttpServletResponse response, String path, String name, String value, int maxAge) {
         Cookie cookie = new Cookie(name, value);
         cookie.setMaxAge(maxAge);
@@ -388,21 +403,32 @@ public class LogCreate extends HttpServlet {
         response.addCookie(cookie);
     }
 
+    //MySQLデータベースにログデータを送信
     protected void sendDatabase() {
         //実行するSQL文
         try {
+            //データベース接続情報
             String path = "jdbc:mysql://localhost:3306/test?autoReconnect=true&useSSL=false&rewriteBatchedStatements=true";  //接続パス
             String id = "root";    //ログインID
             String pw = "Usagi3.0807";  //ログインパスワード
-            Class.forName("com.mysql.jdbc.Driver");//JDBCドライバをロード
-            conn = DriverManager.getConnection(path, id, pw);//コネクションの作成
+
+            //JDBCドライバをロード
+            Class.forName("com.mysql.jdbc.Driver");
+
+            //データベースに接続
+            conn = DriverManager.getConnection(path, id, pw);
+
             Log log;
+            //ログキューがから出ない限りログをデータベースに送信
             while (logs.size() != 0) {
                 log = logs.poll();
+                //ログを挿入し，IDを取得
                 int logID = log.Insert(conn, ps, rs);
+                //イベント情報を挿入
                 log.event.Insert(logID, conn, ps, rs);
+                //ノード情報を挿入
                 log.node.Insert(logID, conn, ps, rs);
-                //logs.remove(0);
+                //ログキューサイズの表示
                 System.out.println("size:" + logs.size());
             }
         } catch (ClassNotFoundException e) {
@@ -410,6 +436,7 @@ public class LogCreate extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
+            //接続クローズ
             try {
                 if (conn != null) {
                     conn.close();
@@ -420,17 +447,24 @@ public class LogCreate extends HttpServlet {
         }
     }
 
+    //SQliteデータベースにログ情報を送信するメソッド
     synchronized protected void sendSQliteDatabase() {
         int logID = -1;
         try {
+            //JDBCドライバをロード
             Class.forName("org.sqlite.JDBC");
+
+            //SQLite設定
             SQLiteConfig sqLiteConfig = new SQLiteConfig();
             sqLiteConfig.setSynchronous(SQLiteConfig.SynchronousMode.NORMAL);
             sqLiteConfig.setJournalMode(SQLiteConfig.JournalMode.WAL);
             //try (Connection connection = DriverManager.getConnection("jdbc:sqlite:C:/Users/ikeda/Desktop/database/testSyudou.db", sqLiteConfig.toProperties())) //開発環境
-            try (Connection connection = DriverManager.getConnection("jdbc:sqlite:/usr/local/tomcat/db/test.db", sqLiteConfig.toProperties())) //Docker
-            {
+
+            //データベース接続情報(Docker環境)
+            try (Connection connection = DriverManager.getConnection("jdbc:sqlite:/usr/local/tomcat/db/test.db", sqLiteConfig.toProperties())) {
                 connection.setAutoCommit(false);
+
+                //ログキューが空でない限りログをSQLiteデータベースに送信
                 while (logs.size() != 0) {
                     Log log = logs.poll();
                     log.sqliteInsert(connection);
@@ -446,7 +480,9 @@ public class LogCreate extends HttpServlet {
         }
     }
 
+    //初期化処理
     public void init() throws ServletException {
+        //ログライタースレッドの開始
         LogWriter logwriter = new LogWriter(logs);
         logwriter.start();
     }

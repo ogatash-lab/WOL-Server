@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 
+//classListプロパティが持つクラスのリストを表す
 public class DOMTokenList {
     public int length;
     public String value;

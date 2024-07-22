@@ -5,6 +5,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.UUID;
 
+//ユーザを表す
 public class User {
     public HttpSession ses;
 

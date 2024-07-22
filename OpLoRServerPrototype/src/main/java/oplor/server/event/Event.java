@@ -5,8 +5,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Event {
+    //イベント情報を格納するMap
     public Map<String, Object> getter = new HashMap<>();
 
+    //イベントのプロパティ(内容は以下webサイト参照：https://developer.mozilla.org/ja/docs/Web/API/Event(access:2024/5/31))
     public boolean bubbles;
     public boolean cancelable;
     public boolean composed;
@@ -16,6 +18,7 @@ public class Event {
     public String type;
     public boolean isTrusted;
 
+    //イベントの絶対時間
     public String absTime;
 
     public Event() {
@@ -30,7 +33,7 @@ public class Event {
         this.absTime = "?";
     }
 
-    //Map内のオブジェクトをアップデートする
+    //getterマップにイベント情報を更新
     public void update() {
         getter.put("bubbles", bubbles);
         getter.put("cancelable", cancelable);
@@ -42,25 +45,31 @@ public class Event {
         getter.put("isTrusted", isTrusted);
     }
 
+    //データベース接続+イベント情報をデータベースに挿入
     public void send(int logID) {
+        //データベース接続の開始をログ出力
         System.out.println("MySQLTEST---START--------------------------------------");
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        //実行するSQL文
+        //SQL文の実行
         try {
             String path = "jdbc:mysql://localhost:3306/test?autoReconnect=true&useSSL=false";  //接続パス
             String id = "root";    //ログインID
             String pw = "Usagi3.0807";  //ログインパスワード
-            Class.forName("com.mysql.jdbc.Driver");//JDBCドライバをロード
-            conn = DriverManager.getConnection(path, id, pw);//コネクションの作成
-            //INSERT
+
+            //JDBCドライバのロードとデータベースへの接続
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(path, id, pw);
+
+            //データベースへイベント情報を挿入
             Insert(logID, conn, ps, rs);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
+            //データベース接続のクローズ
             try {
                 if (conn != null) {
                     conn.close();
@@ -71,20 +80,21 @@ public class Event {
         }
     }
 
+    //イベント情報をデータベースに挿入
     public int Insert(int logID, Connection conn, PreparedStatement ps, ResultSet rs) throws SQLException {
         int childID = -1;
-        //INSERT
-        //Calendar
-        /*
-        Calendar cal=Calendar.getInstance();
-        SimpleDateFormat sdf= new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSSSSS");
-        absTime = sdf.format(cal.getTime());
-        */
+
+        //イベントのタイムスタンプを取得
         Timestamp ts = new Timestamp(System.currentTimeMillis());
         absTime = ts.toString(); //2014-02-21 15:33:15.123456789
-        //System.out.println("absTime:"+absTime);
+
+        //SQL文の作成
         String sql = "INSERT INTO event(ref, bubbles, cancelable, composed, defaultPrevented, eventPhase, timeStamp, type, isTrusted, absTime)VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        //準備されたステートメントを作成
         ps = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+
+        //パラメータの設定
         ps.setInt(1, logID);
         ps.setBoolean(2, bubbles);
         ps.setBoolean(3, cancelable);
@@ -95,21 +105,27 @@ public class Event {
         ps.setString(8, type);
         ps.setBoolean(9, isTrusted);
         ps.setString(10, absTime);
-        //ISNERTを実行する
+
+        //INSERT文の実行
         ps.executeUpdate();
-        //次の子クラスへと紐づけるためのID取得
+
+        //挿入されたレコードのキーを取得
         rs = ps.getGeneratedKeys();
         while (rs.next()) {
-            childID = rs.getInt(1);
+            childID = rs.getInt(1); //挿入されたレコードのIDを取得
         }
+
+        //挿入されたレコードのIDを返す
         return childID;
     }
 
+    //SQLiteデータベースに新しいイベントを挿入
     public int sqliteInsert(int logID, Connection connection) throws SQLException {
         int childID = -1;
-        //System.out.println("1");
+        //INSERT文のSQL文
         String sql = "insert into Event(ref, bubbles, cancelable, composed, defaultPrevented, eventPhase, timeStamp, type, isTrusted, absTime)values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
+            //パラメータの設定
             ps.setInt(1, logID);
             ps.setBoolean(2, bubbles);
             ps.setBoolean(3, cancelable);
@@ -120,15 +136,20 @@ public class Event {
             ps.setString(8, type);
             ps.setBoolean(9, isTrusted);
             ps.setString(10, absTime);
+
+            //SQL文の実行
             ps.executeUpdate();
+
+            //挿入されたレコードのキーを取得
             ResultSet rs = ps.getGeneratedKeys();
             while (rs.next()) {
-                childID = rs.getInt(1);
+                childID = rs.getInt(1); //挿入されたレコードのIDを取得
             }
         }
-        return childID;
+        return childID; //挿入されたレコードのIDを返す
     }
 
+    //指定されたキーに対するgetterのオブジェクトを返す
     public Object get(String str) {
         return getter.get(str);
     }
