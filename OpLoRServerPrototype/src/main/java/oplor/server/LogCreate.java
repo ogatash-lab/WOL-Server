@@ -24,8 +24,8 @@ import static java.lang.Math.abs;
 //MySQLデータベースに保存するクラス
 @WebServlet(name = "LogCreate", urlPatterns = {"/HW"})
 public class LogCreate extends HttpServlet {
-    public Event event = new Event();
-    public Node node = new Node();
+    //public Event event = new Event();
+    //public Node node = new Node();    // ローカルで呼ぶことで上書きを防ぐ
     private final LinkedBlockingQueue<Log> logs = new LinkedBlockingQueue<>();
     public boolean isConnection = false;
 
@@ -81,8 +81,6 @@ public class LogCreate extends HttpServlet {
             EventType = strs[0];
             NodeType = strs[1];
             LogBody = strs[2];
-            System.out.println("EventType:" + EventType);
-            System.out.println("LogBody:" + LogBody);
 
             //ログボディをイベントボディとノードボディに分割
             String[] logbody = LogBody.split("},", 2);
@@ -104,8 +102,13 @@ public class LogCreate extends HttpServlet {
             //JSONデシリアライズ用のGsonオブジェクトを初期化(JSON->Object)
             Gson egson = new Gson();
 
+            // ローカルで作成(上書きを防ぐため)
+            Event event = new Event();
+            Node node = new Node();
+            
+
             //EventTypeに基づいてイベントをデシリアライズ
-            if (EventType.equals("event")) {
+            if (EventType.equals("Event")) { //event->Event changed by makino
                 event = egson.fromJson(EventBody, Event.class);//JSON形式からオブジェクトへ
                 event.update();
             } else if (EventType.equals("UIEvent")) {
@@ -119,6 +122,9 @@ public class LogCreate extends HttpServlet {
             } else if (EventType.equals("MouseEvent")) {
                 MouseEvent mouseevent = egson.fromJson(EventBody, MouseEvent.class);
                 mouseevent.update();
+                
+                System.out.println("Deserialized MouseEvent: " + mouseevent);
+                
                 event = mouseevent;
                 //差を取得して一定時間たっていないならMouseEventを無視する。
                 //long diffTime = lastcal.getTimeInMillis() - calendar.getTimeInMillis();
@@ -379,6 +385,15 @@ public class LogCreate extends HttpServlet {
             }
             Log log = new Log(EventType, NodeType, event, node, userID);
             logs.add(log);
+
+            System.out.println("--LogCreate--\nEventType(reception):" + EventType + "\nEventType(object):" + log.event+ "\nlog: " + log + "\nLogBody:" + LogBody + "\n--Fin(Logcreate)--");
+            // キューの内容を表示
+            System.out.println("Current logs in queue(LogCreate):");
+            for (Log currentLog : logs) {
+                System.out.println(currentLog);  // LogクラスのtoString()メソッドが呼び出されます
+            }
+            System.out.println("--End of logs--");
+
         } else {
             System.out.println("NULL");
         }
@@ -419,7 +434,7 @@ public class LogCreate extends HttpServlet {
             conn = DriverManager.getConnection(path, id, pw);
 
             Log log;
-            //ログキューがから出ない限りログをデータベースに送信
+            //ログキューがから出ない限りログをデータベースに送信(動いてる？？)
             while (logs.size() != 0) {
                 log = logs.poll();
                 //ログを挿入し，IDを取得
@@ -471,6 +486,7 @@ public class LogCreate extends HttpServlet {
                     //logs.remove(0);
                     System.out.println("SQLite size:" + logs.size());
                 }
+                
                 connection.commit();
             }
         } catch (ClassNotFoundException e) {
