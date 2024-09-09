@@ -127,14 +127,14 @@ public class Event {
         try (PreparedStatement ps = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
             //パラメータの設定
             ps.setInt(1, logID);
-            ps.setBoolean(2, bubbles);
-            ps.setBoolean(3, cancelable);
-            ps.setBoolean(4, composed);
-            ps.setBoolean(5, defaultPrevented);
-            ps.setInt(6, eventPhase);
-            ps.setDouble(7, timeStamp);
+            ps.setString(2, bubbles ? "true" : "false"); // BOOLEANをTEXTに変換
+            ps.setString(3, cancelable ? "true" : "false"); // BOOLEANをTEXTに変換
+            ps.setString(4, composed ? "true" : "false"); // BOOLEANをTEXTに変換
+            ps.setString(5, defaultPrevented ? "true" : "false"); // BOOLEANをTEXTに変換
+            ps.setString(6, String.valueOf(eventPhase)); // INTEGERをTEXTに変換
+            ps.setString(7, String.valueOf(timeStamp)); // REALをTEXTに変換
             ps.setString(8, type);
-            ps.setBoolean(9, isTrusted);
+            ps.setString(9, isTrusted ? "true" : "false"); // BOOLEANをTEXTに変換
             ps.setString(10, absTime);
 
             //SQL文の実行
