@@ -1,5 +1,5 @@
 package oplor.server.node;
 
-//DocumentFragmentクラス
+// 未実装
 public class DocumentFragment extends Node {
 }

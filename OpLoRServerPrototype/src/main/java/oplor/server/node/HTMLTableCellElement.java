@@ -1,84 +1,51 @@
 package oplor.server.node;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
-//<td>要素に関するクラス
+// <td>要素に関するクラス
 public class HTMLTableCellElement extends HTMLElement {
-    public String addr;
-    public long cellIndex;
-    public long colSpan;
-    public long rowSpan;
+    // ノードのプロパティ
+    public String abbr;
+    public int cellIndex;
+    public int colSpan;
+    public int rowSpan;
     public String scope;
 
-    //HTMLTableCellElementの更新
-    public void update() {
-        //親クラスのアップデート
-        super.update();
-        //追加情報をgetterマップに追加
-        getter.put("addr", addr);
-        getter.put("cellIndex", cellIndex);
-        getter.put("colSpan", colSpan);
-        getter.put("rowSpan", rowSpan);
-        getter.put("scope", scope);
-    }
-
-    //データベースにHTMLTableCellElementを挿入
-    public int Insert(int logID, Connection conn, PreparedStatement ps, ResultSet rs) throws SQLException {
-        //親イベントのIDを取得
-        int parentID = super.Insert(logID, conn, ps, rs);
-        //htmltablecellelementテーブルにデータを挿入するSQL文
-        String sql = "INSERT INTO htmltablecellelement(ref, addr, cellIndex, colSpan, rowSpan, scope)" +
-                "VALUES(?, ?, ?, ?, ?, ?)";
-        //準備されたステートメントを作成
-        ps = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-        //パラメータを設定
-        ps.setInt(1, parentID);
-        ps.setString(2, addr);
-        ps.setLong(3, cellIndex);
-        ps.setLong(4, colSpan);
-        ps.setLong(5, rowSpan);
-        ps.setString(6, scope);
-
-        //INSERT文を実行
-        ps.executeUpdate();
-        //挿入したレコードのキーを取得
-        int childID = -1;
-        rs = ps.getGeneratedKeys();
-        while (rs.next()) {
-            childID = rs.getInt(1); //挿入したレコードIDを取得
-        }
-        //取得したレコードIDを返す
-        return childID;
-    }
-
-    //SQLiteデータベースにHTMLTableCellElement情報を挿入
+    // SQLiteデータベースにHTMLTableCellElementを挿入
     public int sqliteInsert(int logID, Connection connection) throws SQLException {
-        //親ノードのIDを取得
-        int parentID = super.sqliteInsert(logID, connection);
+        // 挿入したレコードのIDを格納する変数
         int childID = -1;
-        //HTMLTableCellElementテーブルにデータを挿入するSQL文
-        String sql = "insert into HTMLTableCellElement(ref, addr, cellIndex, colSpan, rowSpan, scope)" +
+
+        // 親ノードのIDを取得
+        int parentID = super.sqliteInsert(logID, connection);
+
+        // HTMLTableCellElementにデータを挿入するSQL文
+        String sql = "insert into HTMLTableCellElement(ref, abbr, cellIndex, colSpan, rowSpan, scope)" +
                 "values(?, ?, ?, ?, ?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
-            //パラメータの設定
+            // パラメータの設定
             ps.setInt(1, parentID);
-            ps.setString(2, addr);
-            ps.setLong(3, cellIndex);
-            ps.setLong(4, colSpan);
-            ps.setLong(5, rowSpan);
+            ps.setString(2, abbr);
+            ps.setInt(3, cellIndex);
+            ps.setInt(4, colSpan);
+            ps.setInt(5, rowSpan);
             ps.setString(6, scope);
-            //SQL文の実行
+
+            // SQL文の実行
             ps.executeUpdate();
-            //挿入したレコードのキーを取得
+
+            // 挿入したレコードのキーを取得
             ResultSet rs = ps.getGeneratedKeys();
             while (rs.next()) {
-                childID = rs.getInt(1); //挿入したレコードのIDを取得
+                childID = rs.getInt(1); // 挿入したレコードのIDを取得
             }
+        }catch (SQLException e) {
+            // エラー内容をログに出力
+            System.err.println("Failed to insert HTMLTableCellElement into the database.");
+            e.printStackTrace();
         }
-        //挿入したレコードIDを返す
+
+        // 挿入したレコードIDを返す
         return childID;
     }
 }

@@ -11,7 +11,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 
-//HTMLフォーム要素の検証状態を表すクラス
+// 未実装
+// HTMLフォーム要素の検証状態を表すクラス
 public class ValidityState {
     public boolean badInput;
     public boolean customError;//ReadOnly

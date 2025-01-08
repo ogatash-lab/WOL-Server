@@ -11,6 +11,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 
+// 未実装
+// 文書内のノードを格納するためのリスト
 public class NodeList {
     public int length;
 }

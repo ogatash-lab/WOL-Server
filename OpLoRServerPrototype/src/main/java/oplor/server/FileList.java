@@ -11,6 +11,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 
+// 未実装
+// 複数のファイルを管理するための配列
 public class FileList {
     public int length;
 }

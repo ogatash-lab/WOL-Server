@@ -11,7 +11,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 
-//日付情報を表すクラス
+// 未実装
+// 日付情報を表すクラス
 public class Date {
     public int year;
     public int monthIndex;

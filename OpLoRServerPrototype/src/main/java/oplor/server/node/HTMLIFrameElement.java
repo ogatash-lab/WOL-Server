@@ -2,15 +2,20 @@ package oplor.server.node;
 
 import java.sql.*;
 
-// <embed>要素に関するクラス
-public class HTMLEmbedElement extends HTMLElement {
+// <iframe>要素に関するクラス
+public class HTMLIFrameElement extends HTMLElement {
     // ノードのプロパティ
+    public String allow;
+    public boolean allowFullscreen;
+    public boolean allowPaymentRequest;
     public String height;
+    public String name;
+    public String referrerPolicy;
     public String src;
-    public String type;
+    public String srcdoc;
     public String width;
 
-    // SQLiteデータベースにHTMLEmbedElementを挿入
+    // SQLiteデータベースにHTMLIFrameElementを挿入
     public int sqliteInsert(int logID, Connection connection) throws SQLException {
         // 挿入したレコードのIDを格納する変数
         int childID = -1;
@@ -18,15 +23,21 @@ public class HTMLEmbedElement extends HTMLElement {
         // 親ノードのIDを取得
         int parentID = super.sqliteInsert(logID, connection);
 
-        // HTMLEmbedElementにデータを挿入するSQL文
-        String sql = "insert into HTMLEmbedElement(ref, height, src, type, width)values(?, ?, ?, ?, ?)";
+        // HTMLFrameElementにデータを挿入するSQL文
+        String sql = "insert into HTMLIFrameElement(ref, allow, allowFullscreen, allowPaymentRequest, height, name, referrerPolicy, src, srcdoc, width)" +
+                "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
             // パラメータの設定
             ps.setInt(1, parentID);
-            ps.setString(2, height);
-            ps.setString(3, src);
-            ps.setString(4, type);
-            ps.setString(5, width);
+            ps.setString(2, allow);
+            ps.setBoolean(3, allowFullscreen);
+            ps.setBoolean(4, allowPaymentRequest);
+            ps.setString(5, height);
+            ps.setString(6, name);
+            ps.setString(7, referrerPolicy);
+            ps.setString(8, src);
+            ps.setString(9, srcdoc);
+            ps.setString(10, width);
 
             // SQL文の実行
             ps.executeUpdate();
@@ -38,7 +49,7 @@ public class HTMLEmbedElement extends HTMLElement {
             }
         }catch (SQLException e) {
             // エラー内容をログに出力
-            System.err.println("Failed to insert HTMLEmbedElement into the database.");
+            System.err.println("Failed to insert HTMLIFrameElement into the database.");
             e.printStackTrace();
         }
 

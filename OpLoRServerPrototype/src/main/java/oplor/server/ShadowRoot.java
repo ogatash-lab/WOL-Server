@@ -11,9 +11,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 
-//Shadow DOMのルート要素を表す
+// 未実装
+// Shadow DOMのルート要素を表す
 public class ShadowRoot {
     public String mode;
-    //public Element host;
-    //public ? innerHTML;
 }

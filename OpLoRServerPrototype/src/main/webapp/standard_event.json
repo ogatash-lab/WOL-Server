@@ -1119,11 +1119,12 @@
   {
     "name": "input",
     "type": {
-      "name": "Event",
+      "name": "InputEvent",
       "experimental": false,
       "deprecated": false
     },
     "specification": [
+      "DOM_L3",
       "HTML5"
     ],
     "experimental": false,

@@ -1,79 +1,44 @@
 package oplor.server.node;
 
-import oplor.server.Processor;
+import java.sql.*;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-//文字列に関するクラス???
+// テキストコンテンツに関するクラス
 public class CharacterData extends Node {
-    public int data;
+    // ノードのプロパティ
+    public String data;
     public int length;
 
-    CharacterData() {
-        super();
-        data = 0;
-        length = 0;
-    }
-
-    //CharacterDateの更新
-    public void update() {
-        //親クラスのアップデート
-        super.update();
-        //追加情報をgetterマップに追加
-        getter.put("data", data);
-        getter.put("length", length);
-    }
-    /*
-    public int Insert(int logID, Connection conn, PreparedStatement ps, ResultSet rs) throws SQLException {
-        int parentID=super.Insert(logID, conn, ps, rs);
-        //INSERT
-        String sql="INSERT INTO characterdata(data, length)VALUES(?, ?)";
-        ps=conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-        ps.setInt(1, data);
-        ps.setInt(2, length);
-        //ISNERTを実行する
-        ps.executeUpdate();
-        //次の子クラスへと紐づけるためのID取得
-        int childID=-1;
-        rs=ps.getGeneratedKeys();
-        while(rs.next()) {
-            childID = rs.getInt(1);
-        }
-        return childID;
-    }*/
-
-    //データベースにCharacterDataを挿入
-    public int sqliteInsert(Connection connection) throws SQLException {
+    // SQLiteデータベースにCharacterDataを挿入
+    public int sqliteInsert(int logID, Connection connection) throws SQLException {
+        // 挿入したレコードのIDを格納する変数
         int childID = -1;
-        //System.out.println("1");
 
-        //CharacterDataテーブルにデータを挿入するSQL文
-        String sql = "insert into CharacterData(data, length) values(?, ?)";
+        // 親ノードのIDを取得
+        int parentID = super.sqliteInsert(logID, connection);
 
-        //準備されたステートメントを作成
+        // CharacterDataにデータを挿入するSQL文
+        String sql = "insert into CharacterData(ref, data, length) values(?, ?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
-            //パラメータを設定
-            ps.setInt(1, data);
-            ps.setInt(2, length);
+            // パラメータの設定
+            ps.setInt(1, parentID);
+            ps.setString(2, data);
+            ps.setInt(3, length);
 
-            //SQL文を実行
+            // SQL文の実行
             ps.executeUpdate();
 
-            //挿入されたレコードのキーを取得
+            // 挿入したレコードのキーを取得
             ResultSet rs = ps.getGeneratedKeys();
             while (rs.next()) {
-                childID = rs.getInt(1);//挿入したレコードのIDを取得
+                childID = rs.getInt(1); // 挿入したレコードのIDを取得
             }
+        }catch (SQLException e) {
+            // エラー内容をログに出力
+            System.err.println("Failed to insert CharacterData into the database.");
+            e.printStackTrace();
         }
-        //取得したレコードIDを返す
-        return childID;
-    }
 
-    //未実装
-    public String accept(Processor pro) {
-        return null;
+        // 取得したレコードIDを返す
+        return childID;
     }
 }

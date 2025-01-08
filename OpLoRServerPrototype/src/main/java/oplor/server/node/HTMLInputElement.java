@@ -1,248 +1,123 @@
 package oplor.server.node;
 
-import oplor.server.*;
+import java.sql.*;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-//<input>要素に関するクラス
+// <input>要素に関するクラス
 public class HTMLInputElement extends HTMLElement {
-    //public HTMLFormElement formSelector;
+    // ノードのプロパティ
+    public String accept;
+    public String alt;
+    public String autocapitalize;
+    public String autocomplete;
+    public boolean autofocus;
+    public boolean checked;
+    public boolean defaultChecked;
+    public String defaultValue;
+    public String dirName;
+    public boolean disabled;
     public String formAction;
     public String formEncType;
     public String formMethod;
     public String formNoValidate;
     public String formTarget;
-    public String name;
-    public String type;
-    public boolean disabled;
-    public boolean autofocus;
-    public boolean required;
-    public String value;
-    public ValidityState validity;
-    public String validationMessage;
-    public boolean willValidate;
-    public boolean checked;
-    public boolean defaultChecked;
+    public int height;
     public boolean indeterminate;
-    public String alt;
-    public int height;//String?
-    public String src;
-    public int width;//String?
-    public String accept;
-    public FileList files;
-    public String autocomplete;
-    public long maxLength;
-    public long size;
+    public String max;
+    public int maxLength;
+    public String min;
+    public boolean multiple;
+    public String name;
     public String pattern;
     public String placeholder;
     public boolean readyOnly;
-    public String min;
-    public String max;
-    public long selectionStart;
-    public long selectionEnd;
+    public boolean required;
     public String selectionDirection;
-    public String defaultValue;
-    public String dirName;
-    //public String accessKey;//fromJsonできない原因
-    //public HTMLElement list;//fromJsonできない原因
-    public boolean multiple;
-    public NodeList labels;//すごく怪しい
+    public int selectionEnd;
+    public int selectionStart;
+    public int size;
+    public String src;
     public String step;
-    public Date valueAsDate;
+    public String type;
+    public String validationMessage;
+    public String value;
     public double valueAsNumber;
-    public String autocapitalize;
+    public int width;
+    public boolean willValidate;
 
-    //HTMLInputElementの更新
-    public void update() {
-        //親クラスのアップデート
-        super.update();
-        //追加情報をgetterマップに追加
-        getter.put("formAction", formAction);
-        getter.put("formEncType", formEncType);
-        getter.put("formMethod", formMethod);
-        getter.put("formNoValidate", formNoValidate);
-        getter.put("formTarget", formTarget);
-        getter.put("name", name);
-        getter.put("type", type);
-        getter.put("disabled", disabled);
-        getter.put("autofocus", autofocus);
-        getter.put("required", required);
-        getter.put("value", value);
-        getter.put("validationMessage", validationMessage);
-        getter.put("willValidate", willValidate);
-        getter.put("checked", checked);
-        getter.put("defaultChecked", defaultChecked);
-        getter.put("indeterminate", indeterminate);
-        getter.put("alt", alt);
-        getter.put("height", height);
-        getter.put("src", src);
-        getter.put("width", width);
-        getter.put("accept", accept);
-        getter.put("autocomplete", autocomplete);
-        getter.put("maxLength", maxLength);
-        getter.put("size", size);
-        getter.put("pattern", pattern);
-        getter.put("placeholder", placeholder);
-        getter.put("readyOnly", readyOnly);
-        getter.put("min", min);
-        getter.put("max", max);
-        getter.put("selectionStart", selectionStart);
-        getter.put("selectionEnd", selectionEnd);
-        getter.put("selectionDirection", selectionDirection);
-        getter.put("defaultValue", defaultValue);
-        getter.put("dirName", dirName);
-        getter.put("multiple", multiple);
-        getter.put("step", step);
-        getter.put("valueAsNumber", valueAsNumber);
-        getter.put("autocapitalize", autocapitalize);
-    }
 
-    //データベースにHTMLInputElementを挿入
-    public int Insert(int logID, Connection conn, PreparedStatement ps, ResultSet rs) throws SQLException {
-        //親イベントのIDを取得
-        int parentID = super.Insert(logID, conn, ps, rs);
-
-        //htmlinputelementテーブルにデータを挿入するSQL文
-        String sql = "INSERT INTO htmlinputelement(ref, formAction, formEnctype, formMethod, formNoValidate, formTarget, name, type, disabled, autofocus," +
-                " required, value, validationMessage, willValidate, checked, defaultChecked, indeterminate, alt, height, src," +
-                " width, accept, autocomplete, maxLength, size, pattern, placeholder, readyOnly, min, max, " +
-                "selectionStart, selectionEnd, selectionDirection, defaultValue, dirName, multiple, step, valueAsNumber, autocapitalize)" +
-                "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?," +
-                " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?," +
-                " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, " +
-                "?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-        //準備されたステートメントを作成
-        ps = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-
-        //パラメータを設定
-        ps.setInt(1, parentID);
-        ps.setString(2, formAction);
-        ps.setString(3, formEncType);
-        ps.setString(4, formMethod);
-        ps.setString(5, formNoValidate);
-        ps.setString(6, formTarget);
-        ps.setString(7, name);
-        ps.setString(8, type);
-        ps.setBoolean(9, disabled);
-        ps.setBoolean(10, autofocus);
-        ps.setBoolean(11, required);
-        ps.setString(12, value);
-        ps.setString(13, validationMessage);
-        ps.setBoolean(14, willValidate);
-        ps.setBoolean(15, checked);
-        ps.setBoolean(16, defaultChecked);
-        ps.setBoolean(17, indeterminate);
-        ps.setString(18, alt);
-        ps.setInt(19, height);
-        ps.setString(20, src);
-        ps.setInt(21, width);
-        ps.setString(22, accept);
-        ps.setString(23, autocomplete);
-        ps.setLong(24, maxLength);
-        ps.setLong(25, size);
-        ps.setString(26, pattern);
-        ps.setString(27, placeholder);
-        ps.setBoolean(28, readyOnly);
-        ps.setString(29, min);
-        ps.setString(30, max);
-        ps.setLong(31, selectionStart);
-        ps.setLong(32, selectionEnd);
-        ps.setString(33, selectionDirection);
-        ps.setString(34, defaultValue);
-        ps.setString(35, dirName);
-        ps.setBoolean(36, multiple);
-        ps.setString(37, step);
-        ps.setDouble(38, valueAsNumber);
-        ps.setString(39, autocapitalize);
-
-        //INSERT文を実行
-        ps.executeUpdate();
-
-        //挿入されたレコードのキーを取得
-        int childID = -1;
-        rs = ps.getGeneratedKeys();
-        while (rs.next()) {
-            childID = rs.getInt(1); //挿入したレコードIDを取得
-        }
-        //取得したレコードIDを返す
-        return childID;
-    }
-
-    //SQLiteデータベースにHTMLInputElement情報を挿入
+    // SQLiteデータベースにHTMLInputElementを挿入
     public int sqliteInsert(int logID, Connection connection) throws SQLException {
-        //親ノードのIDを取得
-        int parentID = super.sqliteInsert(logID, connection);
+        // 挿入したレコードのIDを格納する変数
         int childID = -1;
 
-        //HTMLInputElementテーブルにデータを挿入するSQL文
-        String sql = "insert into HTMLInputElement(ref, formAction, formEnctype, formMethod, formNoValidate, formTarget, name, type, disabled, autofocus," +
-                " required, value, validationMessage, willValidate, checked, defaultChecked, indeterminate, alt, height, src," +
-                " width, accept, autocomplete, maxLength, size, pattern, placeholder, readyOnly, min, max, " +
-                "selectionStart, selectionEnd, selectionDirection, defaultValue, dirName, multiple, step, valueAsNumber, autocapitalize)" +
-                "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?," +
-                " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?," +
-                " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, " +
-                "?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        // 親ノードのIDを取得
+        int parentID = super.sqliteInsert(logID, connection);
+
+        // HTMLInputElementにデータを挿入するSQL文
+        String sql = "insert into HTMLInputElement(ref, accept, alt, autocapitalize, autocomplete, autofocus, checked," +
+                " defaultChecked, defaultValue, dirName, disabled, formAction, formEnctype, formMethod, formNoValidate," +
+                " formTarget, height, indeterminate, max, maxLength, min, multiple, name, pattern, placeholder, readyOnly," +
+                " required, selectionDirection, selectionEnd, selectionStart, size, src, step, type, validationMessage," +
+                " value, valueAsNumber, width, willValidate)" +
+                "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?," +
+                " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
-            //パラメータの設定
+            // パラメータの設定
             ps.setInt(1, parentID);
-            ps.setString(2, formAction);
-            ps.setString(3, formEncType);
-            ps.setString(4, formMethod);
-            ps.setString(5, formNoValidate);
-            ps.setString(6, formTarget);
-            ps.setString(7, name);
-            ps.setString(8, type);
-            ps.setBoolean(9, disabled);
-            ps.setBoolean(10, autofocus);
-            ps.setBoolean(11, required);
-            ps.setString(12, value);
-            ps.setString(13, validationMessage);
-            ps.setBoolean(14, willValidate);
-            ps.setBoolean(15, checked);
-            ps.setBoolean(16, defaultChecked);
-            ps.setBoolean(17, indeterminate);
-            ps.setString(18, alt);
-            ps.setInt(19, height);
-            ps.setString(20, src);
-            ps.setInt(21, width);
-            ps.setString(22, accept);
-            ps.setString(23, autocomplete);
-            ps.setLong(24, maxLength);
-            ps.setLong(25, size);
-            ps.setString(26, pattern);
-            ps.setString(27, placeholder);
-            ps.setBoolean(28, readyOnly);
-            ps.setString(29, min);
-            ps.setString(30, max);
-            ps.setLong(31, selectionStart);
-            ps.setLong(32, selectionEnd);
-            ps.setString(33, selectionDirection);
-            ps.setString(34, defaultValue);
-            ps.setString(35, dirName);
-            ps.setBoolean(36, multiple);
-            ps.setString(37, step);
-            ps.setDouble(38, valueAsNumber);
-            ps.setString(39, autocapitalize);
-            //SQL文の実行
+            ps.setString(2, accept);
+            ps.setString(3, alt);
+            ps.setString(4, autocapitalize);
+            ps.setString(5, autocomplete);
+            ps.setBoolean(6, autofocus);
+            ps.setBoolean(7, checked);
+            ps.setBoolean(8, defaultChecked);
+            ps.setString(9, defaultValue);
+            ps.setString(10, dirName);
+            ps.setBoolean(11, disabled);
+            ps.setString(12, formAction);
+            ps.setString(13, formEncType);
+            ps.setString(14, formMethod);
+            ps.setString(15, formNoValidate);
+            ps.setString(16, formTarget);
+            ps.setInt(17, height);
+            ps.setBoolean(18, indeterminate);
+            ps.setString(19, max);
+            ps.setInt(20, maxLength);
+            ps.setString(21, min);
+            ps.setBoolean(22, multiple);
+            ps.setString(23, name);
+            ps.setString(24, pattern);
+            ps.setString(25, placeholder);
+            ps.setBoolean(26, readyOnly);
+            ps.setBoolean(27, required);
+            ps.setString(28, selectionDirection);
+            ps.setInt(29, selectionEnd);
+            ps.setInt(30, selectionStart);
+            ps.setInt(31, size);
+            ps.setString(32, src);
+            ps.setString(33, step);
+            ps.setString(34, type);
+            ps.setString(35, validationMessage);
+            ps.setString(36, value);
+            ps.setDouble(37, valueAsNumber);
+            ps.setInt(38, width);
+            ps.setBoolean(39, willValidate);
+
+            // SQL文の実行
             ps.executeUpdate();
-            //挿入したレコードのキーを取得
+
+            // 挿入したレコードのキーを取得
             ResultSet rs = ps.getGeneratedKeys();
             while (rs.next()) {
-                childID = rs.getInt(1); //挿入したレコードIDを取得
+                childID = rs.getInt(1); // 挿入したレコードIDを取得
             }
+        }catch (SQLException e) {
+            // エラー内容をログに出力
+            System.err.println("Failed to insert HTMLInputElement into the database.");
+            e.printStackTrace();
         }
-        //挿入したレコードIDを取得
-        return childID;
-    }
 
-    //HTMLInputElementと出力
-    public String accept(Processor pro) {
-        pro.process(this);
-        return null;
+        // 挿入したレコードIDを返す
+        return childID;
     }
 }

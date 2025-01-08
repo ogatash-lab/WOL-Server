@@ -1,109 +1,61 @@
 package oplor.server.node;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
-//<form>要素に関するクラス
+// <form>要素に関するクラス
 public class HTMLFormElement extends HTMLElement {
-    public long length;
-    public String name;
-    public String method;
-    public String target;
+    // ノードのプロパティ
+    public String acceptCharset;
     public String action;
+    public String autocomplete;
     public String encoding;
     public String enctype;
-    public String acceptCharset;
-    public String autocomplete;
+    public int length;
+    public String method;
+    public String name;
     public boolean noValidate;
+    public String target;
 
-    //HTMLFormElementの更新
-    public void update() {
-        //親クラスのアップデート
-        super.update();
-        //追加情報をgetterマップに追加
-        getter.put("length", length);
-        getter.put("name", name);
-        getter.put("method", method);
-        getter.put("target", target);
-        getter.put("action", action);
-        getter.put("encoding", encoding);
-        getter.put("enctype", enctype);
-        getter.put("acceptCharset", acceptCharset);
-        getter.put("autocomplete", autocomplete);
-        getter.put("noValidate", noValidate);
-    }
-
-    //データベースにHTMLFormElementを挿入
-    public int Insert(int logID, Connection conn, PreparedStatement ps, ResultSet rs) throws SQLException {
-        //親イベントのIDを取得
-        int parentID = super.Insert(logID, conn, ps, rs);
-
-        //htmlformelementテーブルにデータを挿入するSQL文
-        String sql = "INSERT INTO htmlformelement(ref, length, name, method, target, action, encoding, enctype, acceptCharset, autocomplete, noValidate)" +
-                "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-        //準備されたステートメントを作成
-        ps = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-
-        //パラメータを設定
-        ps.setInt(1, parentID);
-        ps.setLong(2, length);
-        ps.setString(3, name);
-        ps.setString(4, method);
-        ps.setString(5, target);
-        ps.setString(6, action);
-        ps.setString(7, encoding);
-        ps.setString(8, enctype);
-        ps.setString(9, acceptCharset);
-        ps.setString(10, autocomplete);
-        ps.setBoolean(11, noValidate);
-
-        //INSERT文を実行
-        ps.executeUpdate();
-
-        //挿入されたレコードのキーを取得
-        int childID = -1;
-        rs = ps.getGeneratedKeys();
-        while (rs.next()) {
-            childID = rs.getInt(1); //挿入したレコードIDを取得
-        }
-        //取得したレコードIDを返す
-        return childID;
-    }
-
-    //SQLiteデータベースにHTMLFormElement情報を挿入
+    // SQLiteデータベースにHTMLFormElementを挿入
     public int sqliteInsert(int logID, Connection connection) throws SQLException {
-        //親ノードのIDを取得
-        int parentID = super.sqliteInsert(logID, connection);
+        // 挿入したレコードのIDを格納する変数
         int childID = -1;
 
-        //HTMLFormElementテーブルにデータを挿入するSQL文
-        String sql = "insert into HTMLFormElement(ref, length, name, method, target, action, encoding, enctype, acceptCharset, autocomplete, noValidate)" +
+        // 親ノードのIDを取得
+        int parentID = super.sqliteInsert(logID, connection);
+
+        // HTMLFormElementにデータを挿入するSQL文
+        String sql = "insert into HTMLFormElement(ref, acceptCharset, action, autocomplete, encoding, enctype, length, method, name, noValidate, target)" +
                 "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
-            //パラメータの設定
+            // パラメータの設定
             ps.setInt(1, parentID);
-            ps.setLong(2, length);
-            ps.setString(3, name);
-            ps.setString(4, method);
-            ps.setString(5, target);
-            ps.setString(6, action);
-            ps.setString(7, encoding);
-            ps.setString(8, enctype);
-            ps.setString(9, acceptCharset);
-            ps.setString(10, autocomplete);
-            ps.setBoolean(11, noValidate);
-            //SQL文の実行
+            ps.setString(2, acceptCharset);
+            ps.setString(3, action);
+            ps.setString(4, autocomplete);
+            ps.setString(5, encoding);
+            ps.setString(6, enctype);
+            ps.setInt(7, length);
+            ps.setString(8, method);
+            ps.setString(9, name);
+            ps.setBoolean(10, noValidate);
+            ps.setString(11, target);
+
+            // SQL文の実行
             ps.executeUpdate();
-            //挿入したレコードのキーを取得
+
+            // 挿入したレコードのキーを取得
             ResultSet rs = ps.getGeneratedKeys();
             while (rs.next()) {
-                childID = rs.getInt(1); //挿入したレコードIDを取得
+                childID = rs.getInt(1); // 挿入したレコードIDを取得
             }
+        }catch (SQLException e) {
+            // エラー内容をログに出力
+            System.err.println("Failed to insert HTMLFormElement into the database.");
+            e.printStackTrace();
         }
-        //挿入したレコードIDを取得
+
+        // 挿入したレコードIDを返す
         return childID;
     }
 }

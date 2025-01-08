@@ -1,77 +1,42 @@
 package oplor.server.event;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.sql.*;
 
+// UIに関するイベント
 public class UIEvent extends Event {
-    //UIEventの詳細情報を保持
-    public long detail;
+    // イベントのプロパティ
+    public int detail;
 
-    //UIEventの更新
-    public void update() {
-        //親クラスのアップデート
-        super.update();
-        //detailをgetterマップに追加
-        getter.put("detail", detail);
-    }
-
-    //データベースにUIEventを挿入
-    public int Insert(int logID, Connection conn, PreparedStatement ps, ResultSet rs) throws SQLException {
-        //親イベントのIDを取得
-        int parentID = super.Insert(logID, conn, ps, rs);
-
-        //UIEventテーブルにデータを挿入するSQL文
-        String sql = "INSERT INTO uievent(ref, detail)VALUES(?, ?)";
-
-        //準備されたステートメントを作成
-        ps = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-
-        //SQL文のパラメータを設定
-        ps.setInt(1, parentID);
-        ps.setLong(2, detail);
-
-        //INSERT文の実行
-        ps.executeUpdate();
-
-        //生成されたキーの取得
-        int childID = -1;
-        rs = ps.getGeneratedKeys();
-
-        //挿入されたレコードのキーを取得
-        while (rs.next()) {
-            childID = rs.getInt(1); //挿入されたレコードのIDを取得
-        }
-
-        //挿入されたレコードのIDを返す
-        return childID;
-    }
-
-    //SQLiteデータベースにUIEventを挿入
+    // SQLiteデータベースにUIEventを挿入
     public int sqliteInsert(int logID, Connection connection) throws SQLException {
-        //親イベントのIDを取得
-        int parentID = super.sqliteInsert(logID, connection);
+        // 挿入したレコードのIDを格納する変数
         int childID = -1;
 
-        //UIEventテーブルにデータを挿入するSQL文
+        // 親イベントのIDを取得
+        int parentID = super.sqliteInsert(logID, connection);
+
+        // UIEventテーブルにデータを挿入するSQL文
         String sql = "insert into UIEvent(ref, detail)values(?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
-            //パラメータの設定
+            // パラメータの設定
             ps.setInt(1, parentID);
-            ps.setLong(2, detail);
+            ps.setInt(2, detail);
 
-            //SQL文の実行
+            // SQL文の実行
             ps.executeUpdate();
 
-            //挿入されたレコードのキーを取得
+            // 挿入したレコードのキーを取得
             ResultSet rs = ps.getGeneratedKeys();
             while (rs.next()) {
-                childID = rs.getInt(1); //挿入されたレコードのIDを取得
+                childID = rs.getInt(1); // 挿入したレコードのIDを取得
             }
+        }catch (SQLException e) {
+            // エラー内容をログに出力
+            System.err.println("Failed to insert UIEvent into the database.");
+            e.printStackTrace();
         }
 
-        //挿入されたレコードIDを返す
+        // 挿入したレコードIDを返す
         return childID;
     }
 };

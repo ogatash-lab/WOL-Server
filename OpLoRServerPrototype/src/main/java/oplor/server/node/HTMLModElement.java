@@ -1,74 +1,44 @@
 package oplor.server.node;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
-//HTML文書内の修正要素に関するクラス
+// HTML文書内の修正要素に関するクラス
 public class HTMLModElement extends HTMLElement {
+    // ノードのプロパティ
     public String cite;
-    public String detetime;
+    public String datetime;
 
-    //HTMLModElementの更新
-    public void update() {
-        //親クラスのアップデート
-        super.update();
-        //追加情報をgetterマップに追加
-        getter.put("cite", cite);
-        getter.put("detetime", detetime);
-    }
-
-    //データベースにHTMLModElementを挿入
-    public int Insert(int logID, Connection conn, PreparedStatement ps, ResultSet rs) throws SQLException {
-        //親イベントのIDを取得
-        int parentID = super.Insert(logID, conn, ps, rs);
-        //htmlmodelementテーブルにデータを挿入するSQL文
-        String sql = "INSERT INTO htmlmodelement(ref, cite, detetime)VALUES(?, ?, ?)";
-
-        //準備されたステートメントを作成
-        ps = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-
-        //パラメータを設定
-        ps.setInt(1, parentID);
-        ps.setString(2, cite);
-        ps.setString(3, detetime);
-
-        //INSERT文を実行
-        ps.executeUpdate();
-
-        //挿入したレコードのキーを取得
-        int childID = -1;
-        rs = ps.getGeneratedKeys();
-        while (rs.next()) {
-            childID = rs.getInt(1); //挿入したレコードIDを取得
-        }
-        //取得したレコードIDを返す
-        return childID;
-    }
-
-    //SQLiteデータベースにHTMLModElement情報を挿入
+    // SQLiteデータベースにHTMLModElementを挿入
     public int sqliteInsert(int logID, Connection connection) throws SQLException {
-        //親ノードのIDを取得
-        int parentID = super.sqliteInsert(logID, connection);
+        // 挿入したレコードのIDを格納する変数
         int childID = -1;
 
-        //HTMLModElementテーブルにデータを挿入するSQL文
-        String sql = "insert into HTMLModElement(ref, cite, detetime)values(?, ?, ?)";
+        // 親ノードのIDを取得
+        int parentID = super.sqliteInsert(logID, connection);
+
+        // HTMLModElementにデータを挿入するSQL文
+        String sql = "insert into HTMLModElement(ref, cite, datetime)values(?, ?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
-            //パラメータの設定
+            // パラメータの設定
             ps.setInt(1, parentID);
             ps.setString(2, cite);
-            ps.setString(3, detetime);
-            //SQL文の実行
+            ps.setString(3, datetime);
+
+            // SQL文の実行
             ps.executeUpdate();
-            //挿入したレコードのキーを取得
+
+            // 挿入したレコードのキーを取得
             ResultSet rs = ps.getGeneratedKeys();
             while (rs.next()) {
-                childID = rs.getInt(1); //挿入したレコードのIDを取得
+                childID = rs.getInt(1); // 挿入したレコードのIDを取得
             }
+        }catch (SQLException e) {
+            // エラー内容をログに出力
+            System.err.println("Failed to insert HTMLModElement into the database.");
+            e.printStackTrace();
         }
-        //挿入したレコードIDを返す
+
+        // 挿入したレコードIDを返す
         return childID;
     }
 }
