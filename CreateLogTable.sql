@@ -76,6 +76,7 @@ CREATE TABLE IF NOT EXISTS "Event" (
 	"defaultPrevented"	INTEGER,
 	"eventPhase"	INTEGER,
 	"timeStamp"	REAL,
+	"epochMillis"	INTEGER,
 	"type"	TEXT,
 	"isTrusted"	INTEGER
 );

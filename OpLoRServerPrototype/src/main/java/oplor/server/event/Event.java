@@ -13,6 +13,7 @@ public class Event {
     public double timeStamp;
     public String type;
     public boolean isTrusted;
+    public long epochMillis;
 
     // SQLiteデータベースにEventを挿入
     public int sqliteInsert(int logID, Connection connection) throws SQLException {
@@ -20,7 +21,7 @@ public class Event {
         int childID = -1;
 
         // Eventにデータを挿入するSQL文
-        String sql = "insert into Event(ref, bubbles, cancelable, composed, defaultPrevented, eventPhase, timeStamp, type, isTrusted)values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "insert into Event(ref, bubbles, cancelable, composed, defaultPrevented, eventPhase, timeStamp, epochMillis, type, isTrusted)values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
             // パラメータの設定
             ps.setInt(1, logID);
@@ -30,8 +31,9 @@ public class Event {
             ps.setBoolean(5, defaultPrevented);
             ps.setInt(6, eventPhase);
             ps.setDouble(7, timeStamp);
-            ps.setString(8, type);
-            ps.setBoolean(9, isTrusted);
+            ps.setLong(8, epochMillis);
+            ps.setString(9, type);
+            ps.setBoolean(10, isTrusted);
 
             // SQL文の実行
             ps.executeUpdate();
