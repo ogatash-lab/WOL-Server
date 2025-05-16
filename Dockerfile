@@ -8,6 +8,9 @@ FROM tomcat:9.0.46
 COPY --from=builder /usr/work/target/OpLoRServerPrototype-1.0-SNAPSHOT.war $CATALINA_HOME/webapps/
 
 #sqlite
+# ← ファイル名ベースのみ指定（拡張子は .db で固定）
+ENV DB_FILE_BASE=test
+
 RUN apt-get -y update
 RUN apt-get -y upgrade
 RUN apt-get install -y sqlite3 

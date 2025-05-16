@@ -15,6 +15,8 @@ public class LogWriter extends Thread {
     private final LinkedBlockingQueue<Log> logs;    // 非同期処理のためのログを保持するキュー
     private final Properties properties;        // SQLiteの設定をプロパティ
 
+    String dbPath = System.getenv("DB_PATH");   // dbファイルパスを取得
+
     // コンストラクタ：ログキューとSQLiteの設定を初期化
     public LogWriter(LinkedBlockingQueue<Log> logs) {
         this.logs = logs;
@@ -37,7 +39,7 @@ public class LogWriter extends Thread {
                 Class.forName("org.sqlite.JDBC");
 
                 // SQLiteデータベースに接続
-                try (Connection connection = DriverManager.getConnection("jdbc:sqlite:/usr/local/tomcat/db/test.db", this.properties)){
+                try (Connection connection = DriverManager.getConnection("jdbc:sqlite:" + dbPath, this.properties)){
                     // 自動コミットの無効化
                     connection.setAutoCommit(false);
 
