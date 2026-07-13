@@ -1,5 +1,5 @@
-FROM maven:latest as builder
-ENV M2_HOME /usr/share/maven
+FROM maven:latest AS builder
+ENV M2_HOME=/usr/share/maven
 WORKDIR /usr/work
 COPY ./OpLoRServerPrototype /usr/work
 RUN mvn package 
@@ -11,6 +11,12 @@ COPY --from=builder /usr/work/target/OpLoRServerPrototype-1.0-SNAPSHOT.war $CATA
 # ← ファイル名ベースのみ指定（拡張子は .db で固定）
 ENV DB_FILE_BASE=test
 
+# ★【ここが魔法の修正】死んだリポジトリのURLを、公式の過去アーカイブURLへ無理やり書き換える
+RUN sed -i s/deb.debian.org/archive.debian.org/g /etc/apt/sources.list && \
+    sed -i s/security.debian.org/archive.debian.org/g /etc/apt/sources.list && \
+    sed -i '/stretch-updates/d' /etc/apt/sources.list && \
+    sed -i '/buster-updates/d' /etc/apt/sources.list
+
 RUN apt-get -y update
 RUN apt-get -y upgrade
 RUN apt-get install -y sqlite3 
@@ -18,4 +24,4 @@ RUN mkdir /usr/local/tomcat/dbfile
 RUN mkdir /usr/local/tomcat/db
 COPY ./CreateLogTable.sql /usr/local/tomcat/dbfile
 COPY ./entrypoint.sh /usr/local/tomcat/dbfile
-ENTRYPOINT sh -x /usr/local/tomcat/dbfile/entrypoint.sh
+ENTRYPOINT ["sh", "-x", "/usr/local/tomcat/dbfile/entrypoint.sh"]
